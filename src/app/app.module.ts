@@ -12,6 +12,7 @@ import { RegistrarComponent } from './componentes/inicio/registrar/registrar.com
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { CuestionariosComponent } from './componentes/dashboard/cuestionarios/cuestionarios.component';
 import { NavbarComponent } from './componentes/dashboard/navbar/navbar.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './componentes/dashboard/navbar/navbar.component
     RegistrarComponent,
     DashboardComponent,
     CuestionariosComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

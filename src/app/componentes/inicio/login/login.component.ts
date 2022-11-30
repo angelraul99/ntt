@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Usuario } from '../../../models/usuario';
 
 @Component({
@@ -9,8 +10,9 @@ import { Usuario } from '../../../models/usuario';
 })
 export class LoginComponent implements OnInit {
   login:FormGroup;
+  loading= false;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder,private router: Router) { 
     this.login = this.fb.group({
       usuario:['',Validators.required],
       password:['',Validators.required]
@@ -26,6 +28,17 @@ export class LoginComponent implements OnInit {
       nombreUsuario: this.login.value.usuario,
       password: this.login.value.password
     }
+    this.loading= true;
+    setTimeout(()=>{
+      if(usuario.nombreUsuario === '1234' && usuario.password ==='1234'){
+        this.login.reset();
+        this.router.navigate(['/dashboard']);
+      }else{
+        console.log('error')
+      }
+      this.loading = false;
+    }, 2000
+    );
     console.log(usuario);
   }
   
